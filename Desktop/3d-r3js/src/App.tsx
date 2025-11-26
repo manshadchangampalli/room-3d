@@ -7,8 +7,8 @@ import * as THREE from "three";
 function App() {
   return (
     <div className="app">
-      <Canvas camera={{ position: [0, 1, 2], fov: 75 }}>
-        <OrbitControls makeDefault />
+      <Canvas camera={{ position: [0, 0.25, 0], fov: 75 }}>
+        <OrbitControls makeDefault target={[0, -0.25, -2]} />
         <Environment preset="sunset" />
         <mesh scale={50}>
           <sphereGeometry args={[1, 32, 32]} />

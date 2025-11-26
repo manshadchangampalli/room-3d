@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { PivotControls, useGLTF, useTexture } from "@react-three/drei";
+import { useGLTF, useTexture } from "@react-three/drei";
 import { angle } from "../../utils";
 import * as THREE from "three";
 import { useMemo, useEffect } from "react";
+import { PlaneHtml } from "./PlaneHtml";
 
 export function Model(props: any) {
     const { nodes }: any = useGLTF("/model/scene.gltf");
@@ -101,19 +102,18 @@ export function Model(props: any) {
                     material={computerMaterial}
                 />
             </group>
-            <PivotControls
-                onDrag={e => {
-                    console.log("🚀 ~ Model ~ e:", e.elements)
-                }}
-            >
-                <mesh>
-                    <planeGeometry args={[5, 5]} />
-                    <meshStandardMaterial
-                        color="#ffffff"
-                        side={THREE.DoubleSide}
-                    />
-                </mesh>
-            </PivotControls>
+
+            <mesh
+                position={[-6.067446977675723, 2.8458465985749326, -0.07382322910120898]}
+                rotation={[THREE.MathUtils.degToRad(-150.84102354077692), THREE.MathUtils.degToRad(88.12008907322807), THREE.MathUtils.degToRad(150.8541463136918)]}
+                scale={[0.16259622052225794, 0.1345657668293877, 1.0000000000000027]}>
+                <planeGeometry args={[5, 5]} />
+                <meshStandardMaterial
+                    color="#ffffff"
+                    side={THREE.DoubleSide}
+                />
+                <PlaneHtml />
+            </mesh>
         </group>
     );
 }
